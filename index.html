@@ -39,96 +39,196 @@ flex-direction:column;
 background:#ee9ca7;
 }
 
-.name{
-font-size:1.1rem;
-font-weight:600;
-}
-
-#cake{
-display:block;
-position:relative;
-margin:-10em auto 0 auto;
-}
-
-/* candle */
+/* CAKE AREA */
 
 .cake{
-background:#ffffff;
-border-radius:10px;
-position:absolute;
-top:228px;
-left:50%;
-margin-left:-2.4px;
-margin-top:-8.3px;
-width:5px;
-height:35px;
-transform:translateY(-300px);
-animation:in 500ms 2s ease-out forwards;
+position:relative;
+width:240px;
+height:180px;
 }
 
-.cake:after,.cake:before{
-background:rgba(255,0,0,0.4);
+/* LAYERS */
+
+.layer{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+height:20px;
+border-radius:14px;
+opacity:0;
+box-shadow:0 6px 0 rgba(0,0,0,0.1);
+}
+
+.layer1{
+width:210px;
+background:#ffe5ec;
+bottom:0;
+animation:drop 1s forwards;
+animation-delay:.5s;
+}
+
+.layer2{
+width:180px;
+background:#ffc2d1;
+bottom:25px;
+animation:drop 1s forwards;
+animation-delay:1.2s;
+}
+
+.layer3{
+width:150px;
+background:#ffb3c6;
+bottom:50px;
+animation:drop 1s forwards;
+animation-delay:1.9s;
+}
+
+.layer4{
+width:120px;
+background:#ff8fab;
+bottom:75px;
+animation:drop 1s forwards;
+animation-delay:2.6s;
+}
+
+@keyframes drop{
+
+0%{
+transform:translate(-50%,-250px);
+opacity:0;
+}
+
+100%{
+transform:translate(-50%,0);
+opacity:1;
+}
+
+}
+
+/* CANDLE */
+
+.candle{
+position:absolute;
+width:7px;
+height:38px;
+background:white;
+left:50%;
+transform:translateX(-50%);
+bottom:95px;
+border-radius:3px;
+opacity:0;
+animation:candleDrop 1s forwards;
+animation-delay:3.6s;
+}
+
+.candle:before,
+.candle:after{
 content:"";
 position:absolute;
 width:100%;
-height:2.2px;
+height:3px;
+background:#ff8fa3;
 }
 
-.cake:after{top:25%;}
-.cake:before{top:45%;}
+.candle:before{top:10px;}
+.candle:after{top:20px;}
 
-.fuego{
-border-radius:100%;
+@keyframes candleDrop{
+
+0%{
+transform:translate(-50%,-250px);
+opacity:0;
+}
+
+100%{
+transform:translate(-50%,0);
+opacity:1;
+}
+
+}
+
+/* FLAME */
+
+.flame{
 position:absolute;
-top:-20px;
-left:50%;
-margin-left:-2.6px;
-width:6.6px;
+width:10px;
 height:18px;
+background:orange;
+border-radius:50%;
+top:-18px;
+left:50%;
+transform:translateX(-50%);
+animation:flicker .6s infinite alternate;
+animation-delay:4.6s;
 }
 
-.fuego:nth-child(1){animation:fuego 2s infinite;}
-.fuego:nth-child(2){animation:fuego 1.5s infinite;}
-.fuego:nth-child(3){animation:fuego 1s infinite;}
-.fuego:nth-child(4){animation:fuego 0.5s infinite;}
-.fuego:nth-child(5){animation:fuego 0.2s infinite;}
-
-@keyframes fuego{
-0%,100%{
-background:rgba(254,248,97,0.5);
-box-shadow:0 0 40px 10px rgba(248,233,209,0.2);
-transform:translateY(0) scale(1);
-}
-50%{
-background:rgba(255,50,0,0.1);
-box-shadow:0 0 40px 20px rgba(248,233,209,0.2);
-transform:translateY(-20px) scale(0);
-}
+@keyframes flicker{
+from{transform:translateX(-50%) scale(1);}
+to{transform:translateX(-50%) scale(.8);}
 }
 
-@keyframes in{
-to{transform:translateY(0);}
-}
+/* TEXT */
 
 .text{
+margin-top:60px;
+font-size:40px;
 color:#8b6a60;
-font-family:'Lato',sans-serif;
 font-style:italic;
-text-align:center;
+display:flex;
+gap:4px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
-.text h1{font-size:1.4em}
+/* LETTER ANIMATION */
 
-.nextPage{
-margin-top:40px;
-padding:12px 20px;
-font-size:16px;
-border:none;
-border-radius:8px;
-background:black;
-color:white;
-cursor:pointer;
+.letter{
+opacity:0;
+animation:fade 1s forwards;
 }
+
+@keyframes fade{
+
+0%{
+opacity:0;
+transform:translateY(20px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* LETTER DELAYS */
+
+.letter:nth-child(1){animation-delay:5s}
+.letter:nth-child(2){animation-delay:5.1s}
+.letter:nth-child(3){animation-delay:5.2s}
+.letter:nth-child(4){animation-delay:5.3s}
+.letter:nth-child(5){animation-delay:5.4s}
+.letter:nth-child(6){animation-delay:5.5s}
+.letter:nth-child(7){animation-delay:5.6s}
+.letter:nth-child(8){animation-delay:5.7s}
+.letter:nth-child(9){animation-delay:5.8s}
+.letter:nth-child(10){animation-delay:5.9s}
+.letter:nth-child(11){animation-delay:6s}
+.letter:nth-child(12){animation-delay:6.1s}
+.letter:nth-child(13){animation-delay:6.2s}
+.letter:nth-child(14){animation-delay:6.3s}
+.letter:nth-child(15){animation-delay:6.4s}
+.letter:nth-child(16){animation-delay:6.5s}
+.letter:nth-child(17){animation-delay:6.6s}
+.letter:nth-child(18){animation-delay:6.7s}
+.letter:nth-child(19){animation-delay:6.8s}
+.letter:nth-child(20){animation-delay:6.9s}
+.letter:nth-child(21){animation-delay:7s}
+.letter:nth-child(22){animation-delay:7.1s}
+.letter:nth-child(23){animation-delay:7.2s}
+.letter:nth-child(24){animation-delay:7.3s}
+.letter:nth-child(25){animation-delay:7.4s}
+.letter:nth-child(26){animation-delay:7.5s}
 
 /* ---------------- PAGE 2 ---------------- */
 
@@ -156,15 +256,19 @@ opacity:0.8;
 }
 
 @keyframes float{
+
 0%{
 transform:translateY(100vh) scale(0.5);
 opacity:0;
 }
+
 50%{opacity:1;}
+
 100%{
 transform:translateY(-10vh) scale(1.2);
 opacity:0;
 }
+
 }
 
 .slider{
@@ -189,16 +293,15 @@ justify-content:center;
 align-items:center;
 }
 
-/* FIXED IMAGE FITTING */
-
 .slide img,
 .slide video{
 width:100%;
 height:100%;
 object-fit:contain;
-display: block;
 aspect-ratio:4/5;
 }
+
+/* NAV BUTTONS */
 
 button.nav{
 position:absolute;
@@ -213,8 +316,10 @@ font-size:20px;
 border-radius:8px;
 }
 
-.prev{ left:10px }
-.next{ right:10px }
+.prev{left:10px}
+.next{right:10px}
+
+/* DOTS */
 
 .dots{
 position:absolute;
@@ -262,8 +367,8 @@ background-size:200px 120px;
 }
 
 .card{
-width:520px;
-padding:45px;
+width:450px;
+padding:40px;
 background:white;
 border-radius:25px;
 text-align:center;
@@ -290,6 +395,17 @@ color:#444;
 line-height:1.6;
 }
 
+.nextPage{
+margin-top:40px;
+padding:12px 20px;
+font-size:16px;
+border:none;
+border-radius:8px;
+background:black;
+color:white;
+cursor:pointer;
+}
+
 </style>
 </head>
 
@@ -300,20 +416,49 @@ line-height:1.6;
 <div id="page1" class="page">
 
 <div class="cake">
-<div class="fuego"></div>
-<div class="fuego"></div>
-<div class="fuego"></div>
-<div class="fuego"></div>
-<div class="fuego"></div>
+
+<div class="layer layer4"></div>
+<div class="layer layer3"></div>
+<div class="layer layer2"></div>
+<div class="layer layer1"></div>
+
+<div class="candle">
+<div class="flame"></div>
 </div>
 
-<svg id="cake" width="200" height="500">
-<rect x="10" y="475" fill="#fefae9" width="180" height="4"/>
-</svg>
+</div>
 
 <div class="text">
-<h1>Happy Birthday!</h1>
-<p class="name">Mayuri</p>
+
+<span class="letter">H</span>
+<span class="letter">a</span>
+<span class="letter">p</span>
+<span class="letter">p</span>
+<span class="letter">i</span>
+<span class="letter">e</span>
+<span class="letter">s</span>
+<span class="letter">t</span>
+
+<span class="letter"> </span>
+
+<span class="letter">B</span>
+<span class="letter">i</span>
+<span class="letter">r</span>
+<span class="letter">t</span>
+<span class="letter">h</span>
+<span class="letter">d</span>
+<span class="letter">a</span>
+<span class="letter">y</span>
+
+<span class="letter"> </span>
+
+<span class="letter">M</span>
+<span class="letter">a</span>
+<span class="letter">y</span>
+<span class="letter">u</span>
+<span class="letter">r</span>
+<span class="letter">i</span>
+
 </div>
 
 <button class="nextPage" onclick="nextPage()">Next ➜</button>
@@ -324,29 +469,22 @@ line-height:1.6;
 
 <div id="page2" class="page">
 
-<div class="hearts">
-<div class="heart" style="left:10%;animation-delay:0s;">❤</div>
-<div class="heart" style="left:25%;animation-delay:2s;">❤</div>
-<div class="heart" style="left:40%;animation-delay:4s;">❤</div>
-<div class="heart" style="left:55%;animation-delay:1s;">❤</div>
-<div class="heart" style="left:70%;animation-delay:3s;">❤</div>
-<div class="heart" style="left:85%;animation-delay:5s;">❤</div>
-</div>
-
 <div class="slider">
 
 <div class="slides" id="slides">
 
-<div class="slide"><video autoplay muted loop playsinline>
+<div class="slide">
+<video autoplay muted loop playsinline>
 <source src="video.mp4" type="video/mp4">
-</video></div>
+</video>
+</div>
 
 <div class="slide"><img src="img3.jpeg"></div>
 <div class="slide"><img src="img4.jpeg"></div>
 <div class="slide"><img src="img1.jpeg"></div>
 <div class="slide"><img src="img2.jpeg"></div>
 
-</div> 
+</div>
 
 <button class="nav prev" onclick="prevSlide()">❮</button>
 <button class="nav next" onclick="nextSlide()">❯</button>
@@ -396,9 +534,9 @@ document.getElementById("page2").style.display="none"
 document.getElementById("page3").style.display="flex"
 }
 
-let index = 0
-const slides = document.getElementById("slides")
-const dots = document.querySelectorAll(".dot")
+let index=0
+const slides=document.getElementById("slides")
+const dots=document.querySelectorAll(".dot")
 
 function showSlide(){
 slides.style.transform="translateX(" + (-index*100) + "%)"
@@ -424,16 +562,6 @@ showSlide()
 }
 
 showSlide()
-
-for(let i=0;i<30;i++){
-let heart=document.createElement("div")
-heart.className="heart"
-heart.innerHTML="❤"
-heart.style.left=Math.random()*100+"vw"
-heart.style.animationDuration=4+Math.random()*6+"s"
-heart.style.fontSize=15+Math.random()*25+"px"
-document.body.appendChild(heart)
-}
 
 </script>
 
