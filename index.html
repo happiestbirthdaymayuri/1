@@ -39,7 +39,7 @@ flex-direction:column;
 background:#ee9ca7;
 }
 
-/* CAKE */
+/* CAKE AREA */
 
 .cake{
 position:relative;
@@ -92,14 +92,17 @@ animation-delay:2.6s;
 }
 
 @keyframes drop{
+
 0%{
 transform:translate(-50%,-250px);
 opacity:0;
 }
+
 100%{
 transform:translate(-50%,0);
 opacity:1;
 }
+
 }
 
 /* CANDLE */
@@ -131,14 +134,17 @@ background:#ff8fa3;
 .candle:after{top:20px;}
 
 @keyframes candleDrop{
+
 0%{
 transform:translate(-50%,-250px);
 opacity:0;
 }
+
 100%{
 transform:translate(-50%,0);
 opacity:1;
 }
+
 }
 
 /* FLAME */
@@ -173,14 +179,10 @@ flex-direction:column;
 align-items:center;
 }
 
-/* first line */
-
 .line1{
 display:flex;
 gap:4px;
 }
-
-/* second line */
 
 .line2{
 display:flex;
@@ -196,14 +198,17 @@ animation:fade 1s forwards;
 }
 
 @keyframes fade{
+
 0%{
 opacity:0;
 transform:translateY(20px);
 }
+
 100%{
 opacity:1;
 transform:translateY(0);
 }
+
 }
 
 /* LETTER DELAYS */
@@ -231,6 +236,7 @@ transform:translateY(0);
 .letter:nth-child(21){animation-delay:7s}
 .letter:nth-child(22){animation-delay:7.1s}
 .letter:nth-child(23){animation-delay:7.2s}
+
 /* ---------------- PAGE 2 ---------------- */
 
 #page2{
@@ -269,8 +275,6 @@ height:100%;
 object-fit:contain;
 }
 
-/* NAV BUTTONS */
-
 button.nav{
 position:absolute;
 top:50%;
@@ -286,8 +290,6 @@ border-radius:8px;
 
 .prev{left:10px}
 .next{right:10px}
-
-/* DOTS */
 
 .dots{
 position:absolute;
@@ -379,6 +381,10 @@ cursor:pointer;
 </head>
 
 <body>
+
+<audio id="music" loop preload="auto">
+<source src="song.mp3.mp3" type="audio/mpeg">
+</audio>
 
 <!-- PAGE 1 -->
 
@@ -533,6 +539,15 @@ showSlide()
 }
 
 showSlide()
+
+const music = document.getElementById("music")
+
+function startMusic(){
+music.play().catch(()=>{})
+document.removeEventListener("click", startMusic)
+}
+
+document.addEventListener("click", startMusic)
 
 </script>
 
