@@ -39,7 +39,7 @@ flex-direction:column;
 background:#ee9ca7;
 }
 
-/* CAKE AREA */
+/* CAKE */
 
 .cake{
 position:relative;
@@ -92,17 +92,14 @@ animation-delay:2.6s;
 }
 
 @keyframes drop{
-
 0%{
 transform:translate(-50%,-250px);
 opacity:0;
 }
-
 100%{
 transform:translate(-50%,0);
 opacity:1;
 }
-
 }
 
 /* CANDLE */
@@ -134,17 +131,14 @@ background:#ff8fa3;
 .candle:after{top:20px;}
 
 @keyframes candleDrop{
-
 0%{
 transform:translate(-50%,-250px);
 opacity:0;
 }
-
 100%{
 transform:translate(-50%,0);
 opacity:1;
 }
-
 }
 
 /* FLAME */
@@ -175,9 +169,23 @@ font-size:40px;
 color:#8b6a60;
 font-style:italic;
 display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+/* first line */
+
+.line1{
+display:flex;
 gap:4px;
-flex-wrap:wrap;
-justify-content:center;
+}
+
+/* second line */
+
+.line2{
+display:flex;
+gap:4px;
+margin-top:10px;
 }
 
 /* LETTER ANIMATION */
@@ -188,17 +196,14 @@ animation:fade 1s forwards;
 }
 
 @keyframes fade{
-
 0%{
 opacity:0;
 transform:translateY(20px);
 }
-
 100%{
 opacity:1;
 transform:translateY(0);
 }
-
 }
 
 /* LETTER DELAYS */
@@ -226,10 +231,6 @@ transform:translateY(0);
 .letter:nth-child(21){animation-delay:7s}
 .letter:nth-child(22){animation-delay:7.1s}
 .letter:nth-child(23){animation-delay:7.2s}
-.letter:nth-child(24){animation-delay:7.3s}
-.letter:nth-child(25){animation-delay:7.4s}
-.letter:nth-child(26){animation-delay:7.5s}
-
 /* ---------------- PAGE 2 ---------------- */
 
 #page2{
@@ -238,42 +239,10 @@ display:none;
 overflow:hidden;
 }
 
-.hearts{
-position:absolute;
-width:100%;
-height:100%;
-top:0;
-left:0;
-pointer-events:none;
-}
-
-.heart{
-position:absolute;
-color:red;
-font-size:20px;
-animation:float 8s linear infinite;
-opacity:0.8;
-}
-
-@keyframes float{
-
-0%{
-transform:translateY(100vh) scale(0.5);
-opacity:0;
-}
-
-50%{opacity:1;}
-
-100%{
-transform:translateY(-10vh) scale(1.2);
-opacity:0;
-}
-
-}
-
 .slider{
 position:relative;
-width:400px;
+width:90%;
+max-width:400px;
 aspect-ratio:4/5;
 overflow:hidden;
 border-radius:15px;
@@ -298,7 +267,6 @@ align-items:center;
 width:100%;
 height:100%;
 object-fit:contain;
-aspect-ratio:4/5;
 }
 
 /* NAV BUTTONS */
@@ -367,8 +335,9 @@ background-size:200px 120px;
 }
 
 .card{
-width:450px;
-padding:40px;
+width:90%;
+max-width:420px;
+padding:25px;
 background:white;
 border-radius:25px;
 text-align:center;
@@ -383,14 +352,14 @@ animation:cardPop 1s ease;
 
 .card h1{
 font-family:'Playfair Display',serif;
-font-size:38px;
+font-size:32px;
 color:#c2185b;
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 .card p{
 font-family:'Great Vibes',cursive;
-font-size:28px;
+font-size:22px;
 color:#444;
 line-height:1.6;
 }
@@ -430,8 +399,7 @@ cursor:pointer;
 
 <div class="text">
 
-<div>
-
+<div class="line1">
 <span class="letter">H</span>
 <span class="letter">a</span>
 <span class="letter">p</span>
@@ -451,18 +419,15 @@ cursor:pointer;
 <span class="letter">d</span>
 <span class="letter">a</span>
 <span class="letter">y</span>
-
 </div>
 
-<div>
-
+<div class="line2">
 <span class="letter">M</span>
 <span class="letter">a</span>
 <span class="letter">y</span>
 <span class="letter">u</span>
 <span class="letter">r</span>
 <span class="letter">i</span>
-
 </div>
 
 </div>
@@ -573,5 +538,3 @@ showSlide()
 
 </body>
 </html>
-
-
